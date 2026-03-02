@@ -1,3 +1,250 @@
+body {
+  background-color: #ffeebe;
+  overflow-y: scroll;
+}
+h1 {
+  color: #ffeebe;
+  border-color: #b75486;
+  font-family: "Pokemon Solid", sans-serif;
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  text-shadow:
+    0 0 6px hsl(0, 0%, 100%),
+    0 0 12px #ffd000,
+    0 0 24px #ff9900,
+    0 0 40px #ff6600;
+  animation: pulse 1s infinite;
+}
+.search-section {
+  display: flex;
+  justify-content: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-radius: 20px;
+}
+.sprite-gif {
+  position: relative;
+  width: 40px;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  animation: run-across 5s linear infinite;
+}
+.cards-flex {
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-evenly;
+}
+
+.card-flex {
+  display: flex;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  flex-direction: column;
+  background: linear-gradient(0deg, #ffffff, #e888b2);
+  border-radius: 40px;
+  box-shadow: 0 20px 40px rgba(206, 109, 170, 0.5);
+  padding: 15px;
+  border: 5px solid #da92c3;
+  overflow: hidden;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+  transform-style: preserve-3d;
+}
+.card-flex::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.5),
+    transparent 70%
+  );
+  transform: skewX(-20deg);
+  transition: 0.6s;
+}
+.card:hover::before {
+  left: 150%;
+}
+.card-image {
+  display: flex;
+  width: 350px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.search-button {
+  background: linear-gradient(180deg, #d45697, #feca57);
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(53, 53, 53, 0.4);
+}
+.search-button:hover {
+  background: linear-gradient(180deg, #feca57, #d45697);
+  box-shadow: 0 6px 12px 0 rgba(53, 53, 53, 0.6);
+}
+.card-info-flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.card-types-flex {
+  display: flex;
+  background-color: rgb(255, 141, 65);
+  width: fit-content;
+  backdrop-filter: blur(50px);
+  border-radius: 100px;
+  padding: 5px;
+  color: #fff;
+}
+.card-name {
+  font-size: 32px;
+  font-weight: bold;
+}
+.cards-stats-flex {
+  display: flex;
+  flex-direction: column;
+}
+.stat-value {
+  justify-content: end;
+  display: flex;
+}
+.stat-row-flex {
+  display: flex;
+  justify-content: space-between;
+  padding: 1px 5px;
+  gap: 10px;
+}
+
+.search-input-flex {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+.search-label {
+  font-size: 18px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.search-input {
+  padding: 8px;
+  border-radius: 15px;
+  border: 2px solid #d8a0bc;
+  width: 200px;
+}
+.search-form-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+}
+@font-face {
+  font-family: "Pokemon Solid";
+  src: url("fonts/PokemonSolidNormal-xyWR.ttf") format("truetype");
+}
+.bubbles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bubbles span {
+  position: absolute;
+  bottom: -50px;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: rise 6s linear infinite;
+}
+
+.bubbles span:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  width: 30px;
+  height: 30px;
+}
+.bubbles span:nth-child(2) {
+  left: 30%;
+  animation-delay: 1s;
+  width: 18px;
+  height: 18px;
+}
+.bubbles span:nth-child(3) {
+  left: 50%;
+  animation-delay: 2s;
+  width: 10px;
+  height: 10px;
+}
+.bubbles span:nth-child(4) {
+  left: 70%;
+  animation-delay: 3s;
+  width: 14px;
+  height: 14px;
+}
+.bubbles span:nth-child(5) {
+  left: 90%;
+  animation-delay: 4s;
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-150px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-300px) scale(0.8);
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    color: #b75486;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes run-across {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
 /*
  * =====================================================
  * 🦊 PokéCSS - Feuille de styles
