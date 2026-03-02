@@ -159,7 +159,7 @@ h1 {
 }
 @font-face {
   font-family: "Pokemon Solid";
-  src: url("/fonts/PokemonSolidNormal-xyWR.ttf") format("truetype");
+  src: url("fonts/PokemonSolidNormal-xyWR.ttf") format("truetype");
 }
 .bubbles {
   position: absolute;
